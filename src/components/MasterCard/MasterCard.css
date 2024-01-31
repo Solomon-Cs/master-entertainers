@@ -1,0 +1,57 @@
+.master_card{
+    overflow: hidden;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0px 3px 8px rgb(0,0,0,0.25);
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+.master_card:hover{
+    transform: scale(1.08);
+}
+.master_image1{
+    width: 100%;
+    height: 100%;
+}
+.master_details{
+    position: absolute;
+    top:0;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background-image: linear-gradient(rgba(0,0,0,0) ,rgba(0,0,0,1));
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+
+}
+.master_card:hover .master_details {
+    opacity: 1;
+}
+.master_details_heading{
+    font-size: 18px;
+    color: #1408f6;
+  
+}
+.master_data_rate{
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 15px;
+    font-weight: bold;
+    margin:  5px 0;
+    color: #1408f6;
+}
+.master_image2{
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+.master_description{
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+    font-style: italic;
+}

@@ -1,0 +1,73 @@
+.master_List_header{
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.master_List_heading{
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+    color: #ffe400;
+}
+
+.master_List_image{
+    width: 25px;
+    height: 25px;
+    margin-left: 7px;
+}
+
+.master_List_function{
+    display: flex;
+    align-items: center;
+}
+
+.master_List_item {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #0a0909;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.master_List_item.active {
+    border-bottom: 1px solid #ebd80d;
+    font-weight: 500;
+}
+
+.master_List_Sorting{
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: inherit;
+    height: 30px;
+    padding: 0 5px;
+    margin: 0 10px;    
+
+}
+
+.master_cards{
+    width: 300px;
+    height: 400px;
+    margin: 25px;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}
+
+.master_cards:hover{
+    transform: scale(1.08);
+
+}
+
+
