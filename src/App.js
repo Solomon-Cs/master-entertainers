@@ -12,7 +12,7 @@ function App() {
         <MasterList />
 
           <Routes>
-            {/* <Route path="/my-portfolio" exact element={<Home />} /> */}
+            <Route path="/my-portfolio" exact element={<MasterList />} />
           </Routes>
         </Router>
     
