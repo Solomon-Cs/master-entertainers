@@ -50,24 +50,25 @@
     height: 30px;
     padding: 0 5px;
     margin: 0 10px;    
-
+}
+.master_card_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .master_cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     width: 300px;
     height: 400px;
     margin: 25px;
     overflow: hidden;
     border-radius: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
 
 }
 
 .master_cards:hover{
     transform: scale(1.08);
-
 }
-
-

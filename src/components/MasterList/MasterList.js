@@ -5,7 +5,9 @@ import Fire from "../../asset/image/fire.png";
 import MasterCard from "../MasterCard/MasterCard";
 
 const MasterList = () => {
-  const [master_List, setMaster_List] = useState(null);
+  const [masterList, setMasterList] = useState(null);
+  const [filterMaster, setFilterMaster] = useState(null);
+  const [mainRating, setMainRating] = useState(0);
 
   useEffect(() => {
     fetchMasterList();
@@ -18,10 +20,26 @@ const MasterList = () => {
       );
       const data = await response.json();
       if (Array.isArray(data.results)) {
-        setMaster_List(data.results);
+        setMasterList(data.results);
+        setFilterMaster(data.results);
+        console.log(data.results);
       }
     } catch (error) {
       console.log("Error fetching master list:", error);
+    }
+  };
+
+  const handleFilter = (rate) => {
+    if (rate === mainRating) {
+      setMainRating(0);
+      setFilterMaster(masterList);
+    } else {
+      setMainRating(rate);
+      const filtered = masterList.filter(
+        (master) => master.vote_average >= rate
+      );
+      setFilterMaster(filtered);
+      console.log(filtered);
     }
   };
 
@@ -33,9 +51,36 @@ const MasterList = () => {
         </h2>
         <div className="master_List_function">
           <ul className="master_List_item">
-            <li className="master_List_item active">3+ Star</li>
-            <li className="master_List_item">4+ Star</li>
-            <li className="master_List_item">5+ Star</li>
+            <li
+              className={
+                mainRating === 8
+                  ? "master_List_item active"
+                  : "master_List_item"
+              }
+              onClick={() => handleFilter(8.0)}
+            >
+              8+ Star
+            </li>
+            <li
+              className={
+                mainRating === 7
+                  ? "master_List_item active"
+                  : "master_List_item"
+              }
+              onClick={() => handleFilter(7.0)}
+            >
+              7+ Star
+            </li>
+            <li
+              className={
+                mainRating === 6
+                  ? "master_List_item active"
+                  : "master_List_item"
+              }
+              onClick={() => handleFilter(6)}
+            >
+              6+ Star
+            </li>
           </ul>
 
           <select name="" id="" className="master_List_Sorting">
@@ -50,9 +95,13 @@ const MasterList = () => {
         </div>
       </div>
 
-      <div className="master_cards">
-        {master_List ? (
-          master_List.map((list) => <MasterCard key={list.id} list={list} />)
+      <div className="master_card_container">
+        {masterList ? (
+          filterMaster.map((list) => (
+            <div className="master_cards">
+              <MasterCard key={list.id} list={list} />
+            </div>
+          ))
         ) : (
           <p>Loading...</p>
         )}
